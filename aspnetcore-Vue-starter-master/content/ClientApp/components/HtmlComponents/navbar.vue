@@ -4,7 +4,7 @@
              app
              fixed>
     <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
-      <span class="hidden-sm-and-down"><img src="../img/VPR_Logo_NoText.png" alt="VPR" style="margin-left:50px;  width:80px;"></span>
+      <span class="hidden-sm-and-down"><img src="../img/VPR_Logo_NoText.png" alt="VPR" style="margin-left:30px;  width:80px;"></span>
     </v-toolbar-title>
     <v-spacer></v-spacer>
     <form>
@@ -91,9 +91,7 @@ export default {
   .centered-btn {
     width: 100%;
     text-align: center;
-    margin-top:auto;
-    margin-bottom: auto;
-    height: 50%
+
   }
 
   .center-text{
