@@ -25,7 +25,7 @@
         <v-list>
           <v-list-tile avatar>
             <v-list-tile-avatar>
-              <img src="../img/ProfileImage.jpg" alt="John">
+              <img src="../img/ProfileImage.png" alt="John">
             </v-list-tile-avatar>
             <v-list-tile-content>
               <v-list-tile-title>Guillaume D'Amour</v-list-tile-title>
