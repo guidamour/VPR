@@ -1,29 +1,28 @@
 <template>
-    <div id="app" class="container-fluid">
-        <div class="row">
-            <div class="col-md-3">
-                <nav-menu params="route: route"></nav-menu>
-            </div>
-            <div class="col-sm-9">
-                <router-view></router-view>
-            </div>
-        </div>
-    </div>
+  <v-app id="inspire">
+    <nav-bar></nav-bar>
+    <nav-sidemenu></nav-sidemenu>
+    <v-content>
+      <router-view />
+    </v-content>
+  </v-app>
 </template>
 
 <script>
-    import NavMenu from './nav-menu'
+  import NavBar from './HtmlComponents/navbar'
+  import NavMenu from './HtmlComponents/navbar-sidemenu'
 
-    export default {
-      components: {
-        'nav-menu': NavMenu
-      },
+  export default {
+    components: {
+      'nav-bar': NavBar,
+      'nav-sidemenu': NavMenu
+    },
 
-      data () {
-        return {}
-      }
+    data() {
+      return {}
     }
+  }
 </script>
-
 <style>
+
 </style>
