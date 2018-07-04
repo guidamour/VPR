@@ -57,8 +57,15 @@
           this.$http.post('/api/login', {
             email: this.email,
             password: this.password
-          }).then(response => { self.$router.push('/') })
-            .catch(error => console.log(error.value))
+          }).then(response => {
+            const token = response.data.token;
+            localStorage.setItem('user-token', token);
+            self.$router.push('/');
+          })
+            .catch(error => {
+              localStorage.removeItem('user-token');
+              console.log(error.value);
+            })
 
           if (status == '200') {
             self.$router.push('/dashboard');

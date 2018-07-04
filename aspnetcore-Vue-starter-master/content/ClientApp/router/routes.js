@@ -17,15 +17,69 @@ export const routes = [
   { name: 'Login', path: '/login', component: Login, display: 'Login' },
   { name: '', path: '/fetch-data', component: Dashboard, display: 'Fetch data' },
   { name: 'Dashboard', path: '/dashboard', component: Dashboard, display: 'Dashboard' },
-  { name: 'ManageRegistrants', path: '/manageregistrants', component: mRegistrants, dispplay: 'Manage Registrants' },
-  { name: 'PendingApplication', path: '/pendingapplication', component: pApplication, display: 'Pending Application' },
-  { name: '6MonthUpdates', path: '/6monthupdates', component: monthUpdate, display: '6 Month Updates' },
-  { name: 'QuickReports', path: '/quickreports', component: quickReports, display: 'Quick Reports' },
+  {
+    name: 'ManageRegistrants',
+    path: '/manageregistrants',
+    component: mRegistrants,
+    dispplay: 'Manage Registrants',
+    meta: { requiresAuth: true }
+  },
+  {
+    name: 'PendingApplication',
+    path: '/pendingapplication',
+    component: pApplication,
+    display: 'Pending Application',
+    meta: { requiresAuth: true }
+  },
+  {
+    name: '6MonthUpdates',
+    path: '/6monthupdates',
+    component: monthUpdate,
+    display: '6 Month Updates',
+    meta: { requiresAuth: true }
+  },
+  {
+    name: 'QuickReports',
+    path: '/quickreports',
+    component: quickReports,
+    display: 'Quick Reports',
+    meta: { requiresAuth: true }
+  },
   { name: 'ShapeFile', path: '/shapefile', component: shapefile, display: 'Shape File' },
-  { name: 'InterativeReports', path: '/interactivereports', component: InterativeReports, display: 'Interative Reports' },
+  {
+    name: 'InterativeReports',
+    path: '/interactivereports',
+    component: InterativeReports,
+    display: 'Interative Reports',
+    meta: { requiresAuth: true }
+  },
   { name: 'Help', path: '/help', component: help, display: 'Help' },
-  { name: 'ClientManagement', path: '/ClientManagement', component: ClientManagement, display: 'Client Management' },
-  { name: 'Administration', path: '/Administration', component: Administration, display: 'Administration' },
-  { name: 'UserAccounts', path: '/useraccount', component: userAccount, display: 'User Account' },
-  { name: 'WebisteManagement', path: '/websitemanagement', component: websiteManagement, display: 'Webiste Management'}
-]
+  {
+    name: 'ClientManagement',
+    path: '/ClientManagement',
+    component: ClientManagement,
+    display: 'Client Management',
+    meta: { requiresAuth: true }
+  },
+  {
+    name: 'Administration',
+    path: '/Administration',
+    component: Administration,
+    display: 'Administration',
+    meta: { requiresAuth: true }
+  },
+  {
+    name: 'UserAccounts',
+    path: '/useraccount',
+    component: userAccount,
+    display: 'User Account',
+    meta: { requiresAuth: true }
+  },
+  {
+    name: 'WebisteManagement',
+    path: '/websitemanagement',
+    component: websiteManagement,
+    display: 'Webiste Management',
+    meta: { requiresAuth: true }
+  }
+];

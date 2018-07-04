@@ -6,11 +6,13 @@ import { sync } from 'vuex-router-sync';
 import App from 'components/app-root';
 import { FontAwesomeIcon } from './icons';
 import Vuetify from 'vuetify';
+import vuex from 'vuex'
 
 // Registration of global components
 Vue.component('icon', FontAwesomeIcon);
 Vue.use(Vuetify);
 Vue.prototype.$http = axios;
+Vue.use(vuex);
 
 sync(store, router);
 
