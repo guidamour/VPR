@@ -6,8 +6,8 @@ using Vue2Spa.Models;
 
 namespace Vue2Spa.Providers
 {
-    public interface IMonthUpdateProvider
+    public interface IUser
     {
-        Task<IEnumerable<MonthUpdateTableHeader>> GetMonthUpdate();
+        Task<IEnumerable<User>> GetUsers();
     }
 }

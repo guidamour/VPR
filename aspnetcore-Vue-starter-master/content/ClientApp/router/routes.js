@@ -10,10 +10,11 @@ import ClientManagement from 'components/ClientManagement'
 import Administration from 'components/Administration'
 import userAccount from 'components/userAccount'
 import websiteManagement from 'components/websiteManagement'
+import Login from 'components/loginForm'
 
 export const routes = [
   { name: 'Home', path: '/', component: Dashboard, display: 'Home' },
-  { name: '', path: '/counter', component: Dashboard, display: 'Counter' },
+  { name: 'Login', path: '/login', component: Login, display: 'Login' },
   { name: '', path: '/fetch-data', component: Dashboard, display: 'Fetch data' },
   { name: 'Dashboard', path: '/dashboard', component: Dashboard, display: 'Dashboard' },
   { name: 'ManageRegistrants', path: '/manageregistrants', component: mRegistrants, dispplay: 'Manage Registrants' },
@@ -26,5 +27,5 @@ export const routes = [
   { name: 'ClientManagement', path: '/ClientManagement', component: ClientManagement, display: 'Client Management' },
   { name: 'Administration', path: '/Administration', component: Administration, display: 'Administration' },
   { name: 'UserAccounts', path: '/useraccount', component: userAccount, display: 'User Account' },
-  { name: 'WebisteManagement', path: '/websitemanagement', component: websiteManagement, display: 'Webiste Management' }
+  { name: 'WebisteManagement', path: '/websitemanagement', component: websiteManagement, display: 'Webiste Management'}
 ]

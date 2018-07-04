@@ -20,10 +20,10 @@
     >
       <v-progress-linear slot="progress" color="red" indeterminate></v-progress-linear>
       <template slot="items" slot-scope="props">
-        <td>{{ props.item.Name }}</td>
-        <td class="text-xs-right">{{ props.item.Date }}</td>
-        <td class="text-xs-right">{{ props.item.Address }}</td>
-        <td class="text-xs-right">{{ props.item.Method }}</td>
+        <td>{{ props.item.name }}</td>
+        <td class="text-xs-right">{{ props.item.date }}</td>
+        <td class="text-xs-right">{{ props.item.address }}</td>
+        <td class="text-xs-right">{{ props.item.method }}</td>
       </template>
       <v-alert slot="no-results" :value="true" color="error" icon="warning">
         Your search for "{{ search }}" found no results.
@@ -40,46 +40,20 @@ export default {
                 title: this.datatitle,
                 //Change the right side to the correct array
                 generalColumnNames: [
-                    {text:"Name", value:"Name"},
-                    {text:"Date", value:"Date"}, 
-                    {text:"Address", value:"Address"},
-                    {text:"Method", value:"Method"}
+                    {text:"Name", value:"name"},
+                    {text:"Date", value:"date"}, 
+                    {text:"Address", value:"address"},
+                    {text:"Method", value:"method"}
                 ],
-                generalColumnData: [
-                    {
-                        Name: "Derek Jones",
-                        Date: "11-Jun-2018",
-                        Address: "45 Chambers Avenue, SSM",
-                        Method: "In-Person"
-                    },
-                    {
-                        Name: "Jeff Munchin",
-                        Date: "25-Apr-2018",
-                        Address: "2335 Queen Street E., SSM",
-                        Method: "Paper"
-                    },
-                    {
-                        Name: "Alfred Jimps",
-                        Date: "23-Nov-2018",
-                        Address: "1415 Queen Street W., SSM",
-                        Method: "Online"
-                    },
-                    {
-                        Name: "DeeDee Florence",
-                        Date: "1-Apr-2017",
-                        Address: "154 Third Ave, SSM",
-                        Method: "Online"
-                    },
-                    {
-                        Name: "Nester Hollingsworth",
-                        Date: "3-Feb-2018",
-                        Address: "1454 Second Line W., SSM",
-                        Method: "Manual"
-                    }
-                ]
+                generalColumnData: []
             }
         }, props:{
             datatitle: String
+        },
+        mounted() {
+          this.$http.get('api/reports/pendingapplications')
+            .then(data => { this.generalColumnData = data.data.value })
+            .catch(error => { console.log(error) })
         }
 }
 </script>

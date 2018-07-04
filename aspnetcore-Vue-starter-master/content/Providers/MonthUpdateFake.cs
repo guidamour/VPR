@@ -9,63 +9,64 @@ namespace Vue2Spa.Providers
 {
     public class MonthUpdateFake : IMonthUpdateProvider
     {
-        private List<MonthUpdateTableHeader> MonthUpdates { get; set; }
+        private readonly List<MonthUpdateTableHeader> _monthUpdates;
 
         public MonthUpdateFake()
         {
+            _monthUpdates = new List<MonthUpdateTableHeader>();
             Initialize();
         }
 
         private void Initialize()
         {
-            MonthUpdates[0] = new MonthUpdateTableHeader
+            this._monthUpdates.Add(new MonthUpdateTableHeader()
             {
                 Name = "Greg Rakozy",
                 Date = new DateTime(2018, 6, 1),
                 Text = "Lorem ipsum dolor sit amet, aliquam fabulas denique",
                 State = "Active"
-            };
-            MonthUpdates[1] = new MonthUpdateTableHeader
-            {
+            });
+
+            this._monthUpdates.Add(new MonthUpdateTableHeader()
+            { 
                 Name = "Paula Diorza",
                 Date = new DateTime(2016, 12, 15),
                 Text = "Ad homero efficiantur usu, ut sed essent maiorum.",
                 State = "Active"
-            };
-            MonthUpdates[2] = new MonthUpdateTableHeader
+            });
+            this._monthUpdates.Add(new MonthUpdateTableHeader()
             {
                 Name = "Jeffery D'Amidio",
-                Date = new DateTime(2017, 10,23),
+                Date = new DateTime(2017, 10, 23),
                 Text = "In sea porro temporibus.",
                 State = "Active"
-            };
-            MonthUpdates[3] = new MonthUpdateTableHeader
+            });
+            this._monthUpdates.Add(new MonthUpdateTableHeader()
             {
                 Name = "Lawrence Dorence",
                 Date = new DateTime(2017, 4, 1),
                 Text = "Id vix saepe impetus ceteros, te simul essent rationibus sed, facilis voluptua qui id.",
                 State = "Active"
-            };
-            MonthUpdates[4] = new MonthUpdateTableHeader
+            });
+            this._monthUpdates.Add(new MonthUpdateTableHeader()
             {
                 Name = "Daniel Nog",
                 Date = new DateTime(2017, 2, 13),
                 Text = "Cu vis dicit nominavi pericula, his urbanitas scripserit ad, te cum possit interesset referrentur.",
                 State = "Active"
-            };
-            MonthUpdates[5] = new MonthUpdateTableHeader
+            });
+            this._monthUpdates.Add(new MonthUpdateTableHeader()
             {
                 Name = "Greg Rakozy",
                 Date = new DateTime(2018, 1, 12),
                 Text = "Lorem ipsum dolor sit amet, aliquam fabulas denique",
                 State = "Active"
-            };
-
+            });
         }
-
-        public List<MonthUpdateTableHeader> GetMonthUpdate()
+        
+        public Task<IEnumerable<MonthUpdateTableHeader>> GetMonthUpdate()
         {
-            return MonthUpdates;
+            return Task.FromResult(_monthUpdates.AsEnumerable());
         }
     }
 }

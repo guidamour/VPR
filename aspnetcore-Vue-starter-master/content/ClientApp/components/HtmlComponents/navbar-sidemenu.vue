@@ -5,7 +5,9 @@
                        v-model="drawer"
                        fixed
                        app
-                       permanent>
+                       permanent
+                       hide-overlay
+                       stateless>
     <v-list dense>
       <template v-for="item in items">
         <v-divider v-if="item.divider" :key="item.header"></v-divider>

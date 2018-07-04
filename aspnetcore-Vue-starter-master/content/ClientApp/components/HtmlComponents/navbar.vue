@@ -37,12 +37,12 @@
         <v-divider></v-divider>
 
         <v-list>
-          <v-list-tile @click="" centered>
-              <v-list-tile-title class="center-text">Enable messages</v-list-tile-title>
+          <v-list-tile @click="" to="/login" centered>
+              <v-list-tile-title class="center-text">Manage Sites</v-list-tile-title>
           </v-list-tile>
 
           <v-list-tile @click="">
-            <v-list-tile-title class="center-text">Enable hints</v-list-tile-title>
+            <v-list-tile-title class="center-text">Sign Out</v-list-tile-title>
           </v-list-tile>
         </v-list>
 
