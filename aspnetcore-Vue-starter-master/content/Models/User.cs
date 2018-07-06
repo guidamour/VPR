@@ -12,6 +12,9 @@ namespace Vue2Spa.Models
         public Guid Id { get; set; }
 
         [Required]
+        public string IdentityId { get; set; }
+
+        [Required]
         [StringLength(100)]
         public string Email { get; set; }
 

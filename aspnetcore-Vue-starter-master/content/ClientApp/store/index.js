@@ -4,29 +4,38 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 // TYPES
-const MAIN_SET_COUNTER = 'MAIN_SET_COUNTER'
+
 
 // STATE
 const state = {
-  counter: 1
+  currentJWT: ''
 }
 
 // MUTATIONS
 const mutations = {
-  [MAIN_SET_COUNTER] (state, obj) {
-    state.counter = obj.counter
+  setJWT(state, jwt) {
+    state.currentJWT = jwt;
   }
 }
 
 // ACTIONS
-const actions = ({
-  setCounter ({ commit }, obj) {
-    commit(MAIN_SET_COUNTER, obj)
+const actions = {
+  async fetchJWT({ commit }, { username, password }) {
+    // const res = axios.get('url').then().catch()
+    //commit('setJWT', await res.text());
   }
-})
+}
+
+const getters = {
+  jwt: state => state.currentJWT,
+  jwtData: (state, getters) => state.currentJWT ? JSON.parse(atob(getters.jwt.split('.')[1])) : null,
+  jwtSubject: (state, getters) => getters.jwtData ? getters.jwtData.sub : null,
+  jwtIssuer: (state, getters) => getters.jwtData ? getters.jwtData.iss : null
+}
 
 export default new Vuex.Store({
   state,
   mutations,
-  actions
+  actions,
+  getters
 })

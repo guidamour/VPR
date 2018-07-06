@@ -9,21 +9,34 @@ let router = new VueRouter({
   routes
 });
 
+//router.beforeEach((to, from, next) => {
+//  this.$identity.authenticate().then(function () { console.log("Logged in!") })
+//});
+
 router.beforeEach((to, from, next) => {
-  if (to.matched.some(record => record.meta.requiresAuth)) {
-    // this route requires auth, check if logged in
-    // if not, redirect to login page.
-    if (!record.meta.requiresAuth.loggedIn()) {
-      next({
-        path: '/login',
-        query: { redirect: to.fullPath }
-      });
-    } else {
-      next();
+  if (to.meta.requiresAuth) {
+    const authUser = JSON.parse(window.localStorage.getItem('lbUser'))
+    if (!authUser || !authUser.token) {
+      next('/login')
+    }
+    else if (to.meta.adminAuth) {
+      const authUser = JSON.parse(window.localStorage.getItem('lbUser'))
+      if (authUser.data.role_id === 'ADMIN') {
+        next()
+      } else {
+        next('/resident')
+      }
+    } else if (to.meta.residentAuth) {
+      const authUser = JSON.parse(window.localStorage.getItem('lbUser'))
+      if (authUser.data.role_id === 'RESIDENT') {
+        next()
+      } else {
+        console.log('Im in admin')
+        next('/admin')
+      }
     }
   } else {
-    next(); // make sure to always call next()!
+    next()
   }
-});
-
+})
 export default router;

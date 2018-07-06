@@ -10,7 +10,7 @@ import ClientManagement from 'components/ClientManagement'
 import Administration from 'components/Administration'
 import userAccount from 'components/userAccount'
 import websiteManagement from 'components/websiteManagement'
-import Login from 'components/loginForm'
+import Login from 'components/Login/loginForm'
 
 export const routes = [
   { name: 'Home', path: '/', component: Dashboard, display: 'Home' },
@@ -21,7 +21,7 @@ export const routes = [
     name: 'ManageRegistrants',
     path: '/manageregistrants',
     component: mRegistrants,
-    dispplay: 'Manage Registrants',
+    display: 'Manage Registrants',
     meta: { requiresAuth: true }
   },
   {

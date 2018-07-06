@@ -24,6 +24,7 @@ namespace Vue2Spa.Providers
                 Password = "123Password",
                 Address = "123 Random Street, ssm",
                 Email = "Random@gmail.com",
+                IdentityId = "admin"
             });
             _context.Add(new User()
             {
@@ -31,6 +32,7 @@ namespace Vue2Spa.Providers
                 Password = "123Race",
                 Address = "123 Fast Ave, ssm",
                 Email = "f1@gmail.com",
+                IdentityId = "User"
             });
         }
 
